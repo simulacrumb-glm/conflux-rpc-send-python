@@ -3,11 +3,9 @@ Python Scripts to send transactions on Conflux Core Space and Conflux eSpace
 
 ## requirements
 
-web3.py
-Documentation https://web3py.readthedocs.io/
-
-conflux-web3 (for core space interaction)
-Documentation https://python-conflux-sdk.readthedocs.io/
+- [web3.py](https://web3py.readthedocs.io/)
+- [conflux-web3](https://python-conflux-sdk.readthedocs.io/)
+-- Only a hard requirement for Core Space transactions
 
 ### install requirements
 ```bash
@@ -36,7 +34,9 @@ All scripts with the exception of `espace_swap.py` have the ability to send mult
 
 A boolen flag `repeat_one` further determines if you want to send the same transaction inputs multiple times or would like to provide unique inputs for each transaction.
 
-###
+For simplicity and accessibility especially for beginner users, the features are inline in each script and explicitly commented.
+
+### Report
 Report printed to the console showing:
 - Number of transactions sent
 - Total time taken to send transactions
