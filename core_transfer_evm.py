@@ -142,7 +142,7 @@ if __name__ == '__main__':
         this_params["value"] = values_matrix[i][0]
         this_params["nonce"] = start_nonce + i
         this_prebuilt_tx = None
-        this_prebuilt_tx = Contract.functions.transferEVM(to=values_matrix[i][1]).build_transaction( 
+        this_prebuilt_tx = Contract.functions.transferEVM(to=Web3.to_checksum_address(values_matrix[i][1])).build_transaction( 
             this_params
             )
         this_tx = None

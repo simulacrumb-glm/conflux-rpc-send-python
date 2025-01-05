@@ -108,7 +108,7 @@ if __name__ == '__main__':
         value = 3
 
         # Specify "0x..." eSpace address to send to
-        to_address = ""
+        to_address = account.address
 
         values_matrix = [[value, to_address]]
         values_matrix.extend([[value, to_address]] * (batch_size -1))
@@ -116,8 +116,8 @@ if __name__ == '__main__':
     else:
         # Specify [value, "0x..."] eSpace address for each transaction
         values_matrix = [
-            [3, ""],
-            [6, ""],
+            [3, account.address],
+            [6, account.address],
         ]
 
     # Now we have a matrix of transaction inputs `values_matrix` to iterate over
@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
         this_params = tx_defaults.copy()
         ''' Add unique transaction parameters to the default set '''
-        this_params["to"] = address_for_estimation
+        this_params["to"] = Web3.to_checksum_address(values_matrix[i][1])
         this_params["value"] = values_matrix[i][0]
         this_params["nonce"] = start_nonce + i
         this_tx = None

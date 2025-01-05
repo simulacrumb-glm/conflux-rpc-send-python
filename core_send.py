@@ -103,7 +103,7 @@ if __name__ == '__main__':
         ''' Specify "0x..." eSpace address to send to
             Leaving "to" parameter blank for send just sends to the "from" address
         '''
-        to_address = ""
+        to_address = account.address
 
         values_matrix = [[value, to_address]]
         values_matrix.extend([[value, to_address]] * (batch_size -1))
@@ -111,8 +111,8 @@ if __name__ == '__main__':
     else:
         # Specify [value, "cfx:..."] Core Space address for each transaction
         values_matrix = [
-            [3, ""],
-            [6, ""],
+            [3, account.address],
+            [6, account.address],
         ]
 
     # Now we have a matrix of transaction inputs `values_matrix` to iterate over
